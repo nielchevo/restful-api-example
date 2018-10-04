@@ -4,8 +4,8 @@ var mongoose = require('mongoose');
 
 var userModel = require('../models/userModel');
 
-// ADD New User
-router.post('/', function(req, res, next) {
+// ADD New User API
+router.post('/adduser/createUser', function(req, res, next) {
 
     var promise = userModel.create({
         userName :      req.body.user_name,  
@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
     })
 });
 
-router.get('/',function(req, res, next){
+router.get('/adduser/get',function(req, res, next){
     userModel.find({}, function(err, results) {
         if(err) {
             return res.status(500).send("there was an error find the user."); 
